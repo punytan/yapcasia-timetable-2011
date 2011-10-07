@@ -121,7 +121,7 @@ __DATA__
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>YAPC::Asia 2011 - Timetable Viewer</title>
+    <title>YAPC::Asia 2011 - Timetable Viewer #yapcasia</title>
 
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <meta name="format-detection" content="telephone=no" />
