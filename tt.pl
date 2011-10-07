@@ -197,7 +197,10 @@ __DATA__
             <li><a href="#" class="14">Oct 14</a></li>
             <li><a href="#" class="15">Oct 15</a></li>
         </ul>
-        <div class="credit">Powered by <a href="https://github.com/punytan">@punytan</a></div>
+        <div class="credit">
+            <div>by <a href="https://github.com/punytan">@punytan</a></div>
+            <div><a href="https://github.com/punytan/yapcasia-timetable-2011">Fork me on github!</a></div>
+        </div>
     </div>
 
 </body>
