@@ -29,66 +29,73 @@ img {
         padding-top : 5px;
         text-shadow: 0 5px 5px #E6EBE0;
     }
+}
 
-    ul {
-        list-style : none;
-        overflow : auto;
-        border-bottom : 1px solid gray;
+ul.day-list {
+    list-style : none;
+    overflow : auto;
+    border-bottom : 1px solid gray;
 
-        li {
-            float : left;
-            border-right : 1px solid gray;
-            font-size : 0.9em;
-            width : 33%;
-            text-align : center;
-            font-weight : bold;
+    li {
+        float : left;
+        border-right : 1px solid gray;
+        font-size : 0.9em;
+        width : 33%;
+        text-align : center;
+        font-weight : bold;
 
-            &:last-child {
-                border-right : none;
-            }
-
-            a {
-                display : block;
-                padding : 10px;
-                color : #369;
-                text-decoration : none;
-            }
-
+        &:last-child {
+            border-right : none;
         }
+
+        a {
+            display : block;
+            padding : 10px;
+            color : #369;
+            text-decoration : none;
+        }
+
     }
 }
 
 #contents {
     width : 100%;
 
-    ul {
-        list-style : none;
-        overflow : auto;
-        border-bottom : 1px solid gray;
+    div.talk {
+        ul {
+            list-style : none;
+            overflow : auto;
+            border-bottom : 1px solid gray;
 
-        li {
-            font-size : 0.9em;
-            display : block;
-            width : 100%;
+            li {
+                font-size : 0.9em;
+                display : block;
+                width : 100%;
 
-            &:last-child {
-                border-right : none;
-            }
+                div {
+                    margin : 10px;
 
-            div {
-                margin : 10px;
+                    &.start_at {
+                        font-weight : bold;
+                        border-bottom : 1px dotted gray;
+                    }
 
-                &.start_at {
-                    font-weight : bold;
-                    border-bottom : 1px dotted gray;
+                    &.title {
+                        font-size : 1em;
+                        margin-left : 20px;
+                    }
+
+                    &.title div:last-child {
+                        font-weight : bold;
+                    }
+
+                    &.summary {
+                        margin : 20px;
+                        padding : 5px;
+                        border : 1px solid gray;
+                    }
                 }
-
-                &.title {
-                    margin-left : 20px;
-                }
             }
-
-
         }
     }
 }
@@ -96,9 +103,10 @@ img {
 #footer {
     width : 100%;
     text-align : center;
-    margin-top : 15px;
-    padding-top : 15px;
-    border-top : 1px solid gray;
-}
 
+    .credit {
+        margin-top : 15px;
+        padding-top : 15px;
+    }
+}
 
