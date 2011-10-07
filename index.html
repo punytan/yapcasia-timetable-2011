@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>YAPC::Asia 2011 - Timetable Viewer</title>
+
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <link rel="stylesheet/less" type="text/css" href="style.less">
+    <script type="text/javascript" src="http://lesscss.googlecode.com/files/less-1.1.3.min.js"></script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-13133548-2']); _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script>
+        $(function () {
+            $(".day13").show();
+
+            $(".day-list a").click(function () {
+                $(".talk").hide();
+                $(".day" + $(this).attr("class")).show();
+            });
+
+            $(".talk-meta").click(function () {
+                var selector = "#" + $(this).parent().parent().attr('id') + " li.talk-summary";
+                $(selector).css("display") == 'block'
+                    ? $(selector).hide() : $(selector).show();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="header">
+        <div id="logo">YAPC::Asia 2011</div>
+        <ul class="day-list">
+            <li><a href="#" class="13">Oct 13</a></li>
+            <li><a href="#" class="14">Oct 14</a></li>
+            <li><a href="#" class="15">Oct 15</a></li>
+        </ul>
+    </div>
+
+    <div id="contents">
+        <div class="talk day13" id="talk-81" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Thu Oct 13 18:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 超個人情報のためのマルチクラウドを用いた分散セキュアストレージ (Distributed Secure Storage with Multiple Cloud for Super-Private Information)</div>
+                        <div>Akihiro Nakao (piarrakun)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at RejectConf</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">あなたのパスワード、他人のストレージに保存できますか？ パスワードだけでなく、誰にも知られたくない秘密や、カルテ情報、自分自身の遺伝情報など、超個人情報をセキュアに保存するための実装と、 そのPerlとのimplementationについて発表します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day13" id="talk-93" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Thu Oct 13 18:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 本当は難しいフレンド・タイムライン処理</div>
+                        <div>kamipo (kamipo)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at RejectConf</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">TwitterやFacebookのニュースフィードなどのように、友人の投稿を時系列に並べて表示する（以下「フレンド・タイムライン」と呼ぶ）、というのはソーシャルなウェブサービスにおいて一般的な手法であり、ウェブ系の開発者の多くはこのような機能を一度は実装したことがあるのではないかと思います。 このフレンド・タイムライン処理は、一見すると簡単に実現できそうですが、データの増加に伴って様々なボトルネックが健在化してきます。 本トークでは、フレンド・タイムライン機能を運用してきた経験から、データ増加に伴って何がボトルネックになるのか、どのような対策を行っているのかについて発表します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day13" id="talk-37" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Thu Oct 13 19:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> TTでもなくXSlateでもなく、HTML::Template(::Pro)を使うとても些細な理由 (Why I use HTML::Template(::Pro), neither TT nor XSlate)</div>
+                        <div>Seiji OHIRA (s_ohira)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at RejectConf</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">TTでもなくXSlateでもなく、HTML::Template(::Pro)を使うとても些細な理由 いくつかのほんの些細な実体験を元に賢いテンプレートエンジンの落とし穴を紹介させて頂きます。 Tenplate::Toolkit、仕事や趣味でPerlに勤しんできた方々にとってはとても甘美な響きです。何よりも賢く、実行エンジンはキャッシュされていれば恐ろしいほどに高速です。 そう、かつて私がそして、きっと皆さんも大好きであろう出版社の一つであるO&#39;Reilly出版から書籍が出るほどにとても素晴らしい、そう！CPANを代表するモジュールと言って何ら差し支えはないでしょう。 その自由度、その高速なパフォーマンス、全てが花形モジュールとして間違いのない存在といっていいと思います。XSlateも同様に自由度や高速性という素晴らしい(そして、新しい！)モジュールと言って差し支えないでしょう。 ですが、個人的にはHTML::Template(::Pro)を使っています。そして、しばらくは使い続けようと思います。 なぜか？まさしく、この格言に現れていることでしょう。それは&quot;Simple is Best&quot; そう、この言葉に尽きます。複数の人間、時によっては協業他社の人間やプログラムなど理解していない(中には一生そうあろうと思わないであろう)人間すらも、が参画するP/Jに於いては自由度=首を絞める要因となりうるのです！ 先に断っておくとあなたの首を絞めるのではありません。あなたの属する組織そのものの首を絞めかねないのです。フロントに自由であることを許す。ひいてはあなた自身が構築したシステムを産声を上げる寸前に殺す。そんな恐ろしい権利を与えたも同然なのです。 Template::Toolkitはテンプレートエンジンではなく、まさしく処理系と言っても過言ではないでしょう。ただし、それはあなたが！その編集権を完全に握った場合に限られます。大袈裟に言えば、全てを譲渡してしまったようなものですね！ あなたが退勤を押した後で、もしくは休暇中のほんの些細な(そして、とても大切な)休息を守るために、いくつかのことを考えることができれば幸いです。 # HTML::Templateとの出会い 1. きっかけはMovableType 2. MovableTypeに出会い感じたこと、そして感銘を受けたこと 3. その頃、いや今もそうではあるが、私は甘かった… 4. MTTemplateとの決別 5. 何でも出来るということはつまり、より多くのものを失うリスクを背負うということである 6. あなたが全てのテンプレートに対して責任を負うというリスク、制限をかけるという保険 # いくつかの障害事例 0. 奴らはいつだって枕元にやって来る！ 1. 与えたものは自由？それとも領土？ 2. 時は金なり？信用は金なり？ 3. 規約にまつわるエトセトラ 4. 縛るべきは彼？それともあなた？</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day13" id="talk-52" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Thu Oct 13 19:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> サービス運用者のための継続的監視</div>
+                        <div>Tatsuro Myfinder Hisamori (tatsuro.hisamori)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at RejectConf</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">サービスを運用する上で監視は欠かせないものです。 障害発生時に通知が出るのは当然として、問題の早期発見の為に継続的監視を行うことはサービス品質の保証と向上に対し有効的かつ重要な手段だと考えます。 本トークでは運用を安全に行うための手段や、実際にサービスで取り入れているツールとその利用方法について、開発/導入に至る背景を踏まえて解説します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-64" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 10:30:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Opening</div>
+                        <div>941 (941)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">YAPC::Asia 2011の開幕を宣言いたします！</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-96" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 11:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Perl 5.16 and beyond</div>
+                        <div>Jesse Vincent (obra)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">The past few years have seen a renaissance of Perl development. With an annual release schedule and an ever-growing list of core contributors, the Perl community is more vibrant than ever before. We’ve spent the past two years refactoring our development infrastructure and processes and have begun to significantly overhaul the Perl core itself. Come learn about the some of our plans for our 2012 release: Perl 5.16. We’ll look at how we’re refactoring the core language, the Perl distribution and the Perl development community.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-91" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Carton: CPAN dependencies manager</div>
+                        <div>Tatsuhiko Miyagawa (miyagawa)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Carton is a new command to manage Perl module dependencies for your applications. Like gem bundler for Ruby, Carton solves the issue of &quot;upgrading CPAN modules broke my code&quot; by allowing you to lock and freeze dependencies. Carton makes it easy to manage and reproduce module installations on any environments.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-92" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Webアプリケーション高速化</div>
+                        <div>mala (mala)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">あまり人がやらないようなアプローチでのWebアプリケーション高速化のノウハウについて話します。人がやらないと言ってもネタではなく基本的に真面目な話をします。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-68" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> CPANモジュールガイド編集後記＋α</div>
+                        <div>Naoki Tomita (tomi-ru)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">4月に発売された、「CPANモジュールガイド」を執筆中のメモを元にしたトークです。 ・本でとりあげた、あまり知られていないTips ・没モジュールあれこれ ・なぜこのモジュールに決めたのか（比較検討） ・今ならこれも追加で取り上げたいもの 10 modules I haven’t yet talked 的な感じの CPANモジュールをネタにしたざっくばらんなコネタ集トークです。執筆中メモはたくさん残っているのですが、一つ一つの話題は小さくてブログに書くのがめんどうで今に至っています。この機会に全部出してしまおうという企画です。 本の読者でなくても大丈夫です。希望者へのプレゼント用書籍を用意する予定です。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-77" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Something about Smart Phone (TBD) (Something about Smart Phone (TBD))</div>
+                        <div>Naoya Ito (naoya)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">TBD</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-87" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 新はてなダイアリーの裏側</div>
+                        <div>Yasuhiro Onishi (yasuhiro_onishi)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">2003年にサービス開始した「はてなダイアリー」がこの秋、新しく生まれ変わります。 全てが新しくなった「新はてなダイアリー」のシステムの裏側を解説します。 新はてなダイアリーのアーキテクチャ、負荷分散や高速化のための仕組み、ユニークな機能などを紹介します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-22" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 12:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> TBD</div>
+                        <div>Dan Kogai (dankogai)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Something totally new coming from Dan Kogai...</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-71" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 13:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> AnyEvent, Coro, IO::AIO - a good team </div>
+                        <div>Marc Lehmann (mlehmann)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">このトークではPerlでの非同期・イベント駆動プログラミングの第一人者であるMarc Lehmann氏がこの手法を使ったプログラミングについて解説していただきます === This talk gives an introduction into the history and philosophy of AnyEvent, Coro and IO::AIO by looking at the actual problems that prompted their creation, how they attempt to solve them - and how they should not be used. It will also illustrate some typical usage patterns, and how all three of these modules augment each other, how they interact, and how they can be used to conveniently write responsive servers and applications in Perl. (at least some actual experience with event loops and possibly threads is helpful for understanding, as it will not be an introductory tutorial for any of these modules) === （以下の概要はYAPC運営による意訳です） このトークはAnyEvent, Coro, IO::AIO といった非同期・イベント駆動ツールの歴史とその裏にある思想を、これらがそもそもどのような理由から作られ、どのような問題を解決するために生まれてきたかという経緯を紹介しながら解説します。また同時にこれらのツールの「間違った使い方」も紹介することでこれらのツールが有用たり得るドメインを明らかにします。 このほかにもこれらのツールのよくある利用方法や、この三つのツールがどのようにお互いを補完しつつ協力するのか、そしてどのようにリアルタイムなサーバーやアプリケーションをPerlで実装できるのかを解説していきます。 （イベント駆動についての基本知識はトーク中には特に触れられないので、なんらかしらのイベントループでのプログラミング経験、またはスレッドでのプログラミング経験推奨です）</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-56" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 13:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Webアプリでパスワード保護はどこまでやればいいか</div>
+                        <div>徳丸　浩 (ockeghem)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">PSNおよびQriocityに対する不正アクセスにより1億件を超えるパスワード情報が漏洩し、一方では地銀を中心にパスワードの不正利用と見られるなりすましの事件が多発するなど、パスワードの安全性に対する課題が高まっています。 このトークでは、パスワード保護に関する現時点のベストプラクティスであるハッシュ、ソルト、ストレッチングの必要性と実装方法を紹介した上で、データの移行方法などよくある疑問に答えます。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-65" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 14:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> perlbrew</div>
+                        <div>Kang-min Liu (gugod)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">perlbrew is a nice little tool for developers to try new versions of perl. With perlbrew, you can keep multiple versions of installations of perl in parallel, and run programs with any one of them easily.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-49" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 14:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Rubyist のための Perl ウェブアプリケーション開発入門 (Perl web development guide for Rubyist )</div>
+                        <div>Kensuke Nagae (kyanny)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">RVM で複数の Ruby を使い分け、 Sinatra でさっとアプリケーションを書き、 Heroku にデプロイして公開する。これらは Rubyist にとってはおなじみのツールや環境ですが、 Perl でもまったく同じようなことができるのをご存知ですか？ このトークでは、 Perlbrew, Mojolicious::Lite, DotCloud などを紹介し、前述のツールや環境と比較することで、 Rubyist に向けて Perl でのウェブアプリケーション開発を手ほどきします。「Perl はよくわからないけど、 YAPC は面白そうだ」と思っている Rubyist の皆さんに楽しんでいただける内容を目指します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-41" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 14:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Perlで構築された中規模サイトのDC引っ越し記録</div>
+                        <div>FUJIWARA Shunichiro (fujiwara)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">会員登録38万人の音声投稿サイト「こえ部」 http://koebu.com/ のサーバサイドは主に Perl で構築されています。 100万PV/日をサーバ約20台で処理する、小規模というにはちょっとだけ大きくなった中規模サイトに、データセンターを移転する話が持ち上がりました。 この際、ただ移転するだけではなく、リリースから3年にわたって建て増しを繰り返して混乱しているサーバ群をリファクタリングし、今後の拡張に耐える SPOF の少ないアーキテクチャに再構築する作業も行います。 なるべくサイトを停止しないためにあれこれ手段を講じて、最終的には3時間のメンテナンス停止1回のみでデータセンター間のサーバ移転を完了した事例を紹介します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-95" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 15:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Perl 5.14 For Pragmatists</div>
+                        <div>Ricardo Signes (rjbs)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary"> Every new release of Perl comes with a big list of changes, plenty of which seem carefully worded to make the average Perl programmer wonder, &quot;Wait, do I care about this? What the heck is the global interpreter phase?&quot; Perl 5.14 is chocked full of great improvements will actually be useful in day to day programming, and this talk focuses on those, leaving the weird esoterica for another day. </div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-63" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 15:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perl Mongerなりきりカードゲームの考案と実践 (Plan and Practice of Perl Monger Card Game)</div>
+                        <div>makamaka (maka2_donzoko)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Perl Mongerになって悪の仕様や暴君な納期と闘うテーブルトークRPG『Pythons &amp; PerlMongers（パイソン・アンド・パルモンズ）』を2008年の夏コミで出しました（http://www.donzoko.net/gakuya/#trpg_pp）（Pythonは本編と全く何の関係もありません）。あれから3年。そろそろルールを改定し、よりゲーム性の高いものにしたいと考えています。 と思ったのですが、今回抽象化を進めた結果、カードゲームになりました。プレーヤーはPerl Mongerとなって協力しあい、CPANモジュールを駆使して迫り来る悩鬼に先んじて進捗率100%達成を目指します。 最初にゲームの概要と基本ルールを解説します。残り7分間ぐらいで参加者の中から代表で実際にゲームを行っていただけたらいいなあ、と思っています。 なお、順調にいけばこの同人カードゲームはYAPC::Asia会場の片隅（どんぞこ楽屋ブース）で販売される予定です。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-44" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 15:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> perl meets beats.</div>
+                        <div>techno-cat (Cherry) (techno_neko)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">How to make beats with perl. perlでbeatsを刻んで、最終的にgrooveを生みます。 音響合成言語は（SuperColliderとか、AudacityのNyquistとか）いくつかありますが、 perlでもやりたいよね、って思ってやってみたので発表します。 1. perlによる音声合成処理 perlによるWAVファイル出力 音階の実装 単音, 和音の実装 ドラムマシンの実装 2. grooveの実装 grooveとは？ 強弱を付けてみる 発音タイミングをずらしてみる 3. デモンストレーション Techno, House, Drum&#39;n&#39;Bass, 2step, etc...</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-75" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 15:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Mobage オープンプラットフォームの事件簿 (The case file of Mobage Open Platform)</div>
+                        <div>Toru Yamaguchi (zigorou)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Mobage オープンプラットフォームもリリースしてから、1年半以上が経ちました。振り返ってこの期間にどのような事件があり、その都度どのように解決していったかについて説明します。 またスピンアウトして幾つかの CPAN モジュールにしていった理由や、社内で使っている大規模環境向けのツールなども紹介します。 The Mobage Open Platform is after over 1 year and 6 months since it was released. I look up on the history, I&#39;ll describe about we have gotten a happenings during it, how do we have resolved each problems. I&#39;ll also do presentation about the reason that we have been making CPAN modules spin out from our products, and introduce our internal tools for large server environment.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-20" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Mobageソーシャルゲームにおける大規模サーバ運用 with Perl (Large scale server operations in Mobage&#39;s Social Games with Perl)</div>
+                        <div>りーお＠DeNA (riywo)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Mobage@DeNAの管理・運用を通じて経験した大規模サーバ運用の中から、他の環境でも役立つ内容を提供したいと思います。特に2009年から始めた内製ソーシャルゲームでの運用を通じて、どの様にして開発者と協力して運用してきたかという部分をご紹介したいと思います。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-80" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 他言語から見たPerlのテスト (Perl Testing Consideration seen from other languages)</div>
+                        <div>Masaki Nakagawa (masaki.nakagawa)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">昨今では、プロダクトと一緒にテストを書くことがごく普通になりました。 テストに対する考え方や環境は、言語が利用されてきた歴史やコミュニティといった要因に大きく影響を受けており、言語が変わるとその考え方もガラっと変わったりします。 ここでは、Perl以外の言語でのテスト周辺事情とPerlのそれとを比較し、共通点や違いについて考察します。また、他言語でのプラクティスをPerlに適用するにはどうしたら良いか、ということも考えたいと思います。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-21" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> One Page Appsの作り方 (How to Build One Page Apps)</div>
+                        <div>Shinichiro Aska (su_aska)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">How to Build One Page Apps 実例を元にOne Page Appsの作り方を紹介します。 One Page Apps(Single Page Application)とは1枚のHTMLで構成されたWebアプリケーションでTweetDech等が有名です。 一日中開いたままでもバックグラウンドで同期が走り、必要に応じて通知やDOMの再構成が行われ、オフライン中の操作はスタックされ、通信回復後に再同期が行われる様なクライアントアプリケーションに非常に近い実装が必要になります。 実用的なアプリケーションにする為には標準のUIだけでは力不足ですし、開発効率を保つ為には肥大化しがちなJsコードをうまく整頓するコツも必要です。 お話しする内容は多岐に渡りますが、内容の殆どは別途ドキュメントとして公開しますので気になった所は後で御確認下さい。 しかし、習得に時間を要する複雑なテクノロジーや聞いた事も無い様なライブラリは登場しません、皆さんが日頃慣れ親しんでいるPerlとJsとHTMLとCSS、それもそんなに深くないレベルの内容で実現されています。 PlackとjQueryについて知っていれば十分だと思います、このお話ではその技術をどう使ったらサクっとOne Page Appsが作れるのか、私が体験から学んだことを共有しようと思います。 # first step 1. モック(HTML/CSS)を準備 2. WebAPIを準備 3. DOMとアプリ(Js)とWebAPIを接続 4. 手軽な国際化 5. 汎用的なカスタムパーツ達 6. スロットルやデバウンスで使い心地を向上 # second step 1. Chrome Extensions 2. データ不整合の検出と再同期 3. オフラインモードの検出と再同期 4. プラグイン機構の組み込み 5. WebSocketやAjaxリクエスト結束によるパフォーマンス向上</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-94" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> App::staticperl</div>
+                        <div>Marc Lehmann (mlehmann)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at スイーツエリア</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">運営より： Marc Lehmann氏の代わりにとりあえず入れてあります。 10分か15分くらいの短いセッションになる予定ですので、多分スイーツエリアで開催されることになります。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-34" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Apporoで類似文字列検索 (Approximate String Matching using Apporo)</div>
+                        <div>Toshinori Satou (overlast)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">I introduce Apporo and range of application of it. Apporo is one of Approximate String Matching Engine. In example, it can use for spell correction for search query of a medium scale web service. See also &quot;http://code.google.com/p/apporo/&quot;. ---- Apporoとその応用の範囲をご紹介いたします。 Apporoは類似文字列検索ライブラリで、Perlからも使えます。 応用例として、ヒット件数ゼロ件なクエリへの対策、名寄せやスペル訂正、自由入力欄の入力補助などを挙げられます。 Apporoの概要、プロトタイプ開発を Perl でやっていた頃のこと、競合する別アプリとの使い分け方を説明した後、Apporo のメリットや使いどころや Perl からの使い方を説明します。 http://code.google.com/p/apporo/</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-60" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 16:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perlでちょいモテ電子工作 (Pretty Electric Engineering in Perl )</div>
+                        <div>まんでぃー (mandy_44)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">皆さん、Arduinoというオープンソースハードウェアをご存知でしょうか？ Arduinoはマイコンの一種で、入出力ポートを備えており、C言語っぽいArduino独自の言語で書いたプログラムに従って様々な動きをさせることができます。 今回はそのArduinoをPerlを使って動かし、あわよくばモテるようなことに使ってしまうことを目標としています。 ※効果は保証いたしません Arduinoの紹介や使い方も解説しますので、そろそろソフトウェア以外にも手を伸ばしたい、半田ごてを握りたい、電子工作ってなんやねん、という方にもお楽しみいただけると思います！</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day14" id="talk-97" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Fri Oct 14 17:00:00 2011 (90min.)</span></div>
+                    <div class="title">
+                        <div> LT Day 1</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">LT Day 1</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-76" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 10:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 続 Unix Programming with Perl (Unix Programming with Perl 2)</div>
+                        <div>Kazuho Oku (kazuho)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">昨年の Unix Programming with Perl に引き続き、Unix 上で動作するプログラムを Perl で書く上で知っておいたほうがいいノウハウを紹介していきたいと思います。 昨年の資料: http://developer.cybozu.co.jp/kazuho/2010/10/my-slides-at-ya.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-25" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 11:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> 運用しやすいWebアプリケーションの構築方法</div>
+                        <div>masahiro nagano (kazeburo)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">オペレーションエンジニアとして大規模Webサイトの運用に携わってきた経験の中から、運用しやすい、そして負荷に対して柔軟に対応しスケーラビリティの高いWebアプリケーションの構築方法について紹介します。 内容はPlack::Middleware、Cache、DBI、Log、またメトリクス（リソース情報）収集などを予定しています。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-58" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 11:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 大規模環境における、マニアックなキャッシュ利用術 (Cache Maniacs)</div>
+                        <div>Yuji Shimada (xaicron)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Webアプリケーションを運用してく上で、キャッシュの存在はなくてはならないものですね。 memcached や KT などの汎用的なミドルウェアや、プロセス内のキャッシュに DNSキャッシュ等々。 しかし、大規模な環境では、一般的なキャッシュの利用方法が通用しないケースが出てきます。 どのような問題が発生し、どのように解決したのか。 「ネットワークトラフィック大幅に軽減し、スループットも上げましょう！」という話を、某サービスの実例を交えて解説します。 ・memcached へのトラフィック削減のためのキャッシュ ・用途別 DNS キャッシュを perl でがんばる方法 ・プロセス内キャッシュと再起動時の問題解決策 などなど。 perl のコードが読めれば特に前提知識がなくても大丈夫だと思います。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-85" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 11:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> おたくのIPv4まだ残ってますか?-PerlにおけるIPv6への対応状況- (Are There Any More Your IPv4 Address Left?-about IPv6 support for Perl-)</div>
+                        <div>Kazuhiro Shibuya (ka2u)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">JPNIC(APNIC,IANA)のIPv4がついになくなった今、IPv6対応を本格的に検討する段階にはいっています。Webアプリケーション開発者にとっても他人ごとではなく、今後IPv4が手に入りにくくなることは確実であり、アプリケーション側での対応も必要な場面がでてきます。そんな中過去から遡って現在のPerl本体、CPANモジュールのIPv6対応状況をまとめてみたいと思います。 ---- We just need IPv6 support because IPv4 address exhausted in JPNIC(APNIC, IANA). It&#39;s harder than ever to get IPv4 address now. This issue, not only related to networking but there is also a scene where applications need corresponding. So, I try to summarize about IPv6 support for Perl from the past and the present.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-50" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 11:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> ぼくがかんがえたさいきょうのうぇぶあぷりけーしょんふれーむわーく</div>
+                        <div>cho45 (cho45)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">PSGI の定義により、我々は今までよりも気軽に、HTTP リクエストとロジックを繋ぎこむことを主とするようなウェブアプリケーションフレームワークを作れるようになった。 このセッションでは「ぼくのかんがえたさいきょうのうぇぶあぷりけーしょんふれーむわーく」と題し、ウェブアプリケーションフレームワークの設計や、用途に応じた使いわけを考えてみる。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-24" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 11:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Whada: Multi-Protocol Authentcation/Authorization Tool</div>
+                        <div>tagomoris (tagomoris)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">任意のバックエンド認証情報データベース(RDBMS・LDAP等)をベースに権限管理を追加した認証/認可エンジン「Wada」の機能・用例について紹介します。 各種アプリケーションで独自に認証や権限認可について実装することなく LDAP/OpenID/OAuth プロトコルで認証を Wada に移譲することで、社内Webアプリケーションそれぞれにおける認証情報の乱立を防ぎます。 またOpenLDAPを中心にLDAPをいかにハックしたか、OpenIDやOAuthとどのように共通の認証を実現しているかなど、実装面の話を中心にする予定です。 要するに社内LANでWebツールとか使うときに認証を通したいんだけど毎度毎度ActiveDirectoryに繋ぎにいくのが面倒だしトラブル起きるしイヤだ！なんとかしたい！ という人に超オススメのお話になる予定です。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-26" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 12:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> watch your log</div>
+                        <div>nekokak (nekokak)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">アプリケーションを運用していると各種ログを出力していると思います。 障害発生時にログをみて問題の切り分けをするのは当然として 問題の早期発見の為にログの監視を行うことは有効的かつ重要な手段だと考えます。 社内DevOpsの流れで開発しているログ監視フレームワークを紹介します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-73" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 12:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 画像Hacks (Image Hacks with Perl)</div>
+                        <div>Yusuke Wada (yusuke.wada)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Perlで画像加工をすることについて、基本といくつかのハックを紹介します。Webアプリでよく使われている画像のリサイズといった初歩的な事柄から、料理写真をおいしく見せるハック、高速に処理するためのライブラリ選び、画像から顔などのオブジェクトを検出する方法、それらを応用しての画像ジェネレータの作り方まで盛りだくさん。画像加工の手段としてCPANモジュールの中からImagerを中心に使用します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-55" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 12:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> DISられないCPANizeを目指して (PrePAN - Introduction to a website to request for reviews of Perl modules)</div>
+                        <div>kentaro (kentaro)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">便利モジュールを作ったよ！CPANizeしよっかな、という際に、いくつか不安に思うことがあったりします。 - 既に似たようなものがあるのでは？ - 実装について不安が……。 - CPANizeするに際しての名前やファイル構成の慣習がわからない - 誰かにちょっとチェックしてもらいたい そんな問題を解決し、PerlerとCPANとのよりよい関係を模索します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-32" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 12:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perlで無理ゲーム攻略 (How to play Win32::GuiTest)</div>
+                        <div>TAKESAKO (takesako)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">某MMORPGでゲーム中にPerlの同時起動を遮断する機能が追加されたことがありました。参考：http://slashdot.jp/developers/article.pl?sid=06/09/12/1015226 Win32::GuiTest や Win32::Screenshot などのモジュールを利用して、Windows上で動作するゲームを自動でプレイするPerlプログラムを作成する方法について解説します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-28" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 12:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Hacking with metacpan</div>
+                        <div>Tokuhiro Matsuno (tokuhirom)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">metacpan API をつかって CPAN 関連のツールをかいちゃおう! metacpan API をつかうと、ほんとにびっくりするほど簡単に CPAN 関連のツールがかけちゃうので、「あー、CPAN がこんなだったらいいのになー」っていうのとか自分で解決できてまじ便利なので、CPAN をつかってる人はぜひききにくるとよいですね。 I developed some metacpan related tools for better CPAN life. I introduce to use metacpan API. So my hacks are: - http://explorer.metacpan.org/ - http://frepan.org/ - https://github.com/miyagawa/cpanminus/pull/109</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-59" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 13:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> 闇のEメール伝説 (Email Hates the Living!)</div>
+                        <div>Ricardo Signes (rjbs)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">本プレゼンテーションではPerlにおけるEメール関連のモジュールのほぼ全てに関わっているRicardo Signesさんが我々が知らず知らずのうちに頼り切っているEメール関連の実装についての闇と真実について語って頂きます ===== Email: you see it every day. It&#39;s on your desktop. It&#39;s in your servers. Through the magic of modern technology, it flows invisibly through the air and into your PDA! Your cellular phone conducts silent and arcane conversations with distant servers, speaking the ancient language of SMTP and the unknowable dialects of IMAP. Surely all this technology means progress of mankind... or does it? Now you can learn the truth: buried deep within the eldritch documents describing the slow accretion of features in the Elder Protocols lie subtle recursions and devilish ambiguities -- grammars that are not grammars, strings quietly stripped of their higher bits -- designed to slowly bend the mind of all who implement them. Now you can hear of the horrors perpetrated by those who became thrall to these documents -- and by those, too, who fought to oppose them for the sake of their own dwindling sanity. Now it can be told: Email Hates the Living! WARNING: This talk is low in career-sustaining educational content. ===== （日本語タイトル、及び以下の概要はYAPC運営による意訳です） Eメール。あなたも私も毎日これを使っています。あなたのデスクトップPCにもありますし、あなたの使ってるサーバーにも実装されています。 さらに最近では近代技術という魔法の力によって、目に見えない形で空間を移動し、あなたのPDAやスマートフォンにもやってくるのです！ あなたの携帯はSMTPという古代言語とすでに使う物のいないIMAPという方言を駆使し彼方のサーバーと通信をあなたの知らない間にしているのです。これらはの技術はまさに人類の進歩を意味している・・・はずですよね？ このトークであなたは真実を知ることになります： 古代プロトコールの真実を知る闇の文書には巧妙な論理の再帰と悪魔的な表現の曖昧さをはらんでいるのです -- 文法として成立しない文法、上位ビットが何者かに消されている文字列達 -- これらはこの技術の実装者達の精神をゆっくりと破壊していくために設計されているのです あなたはこの闇の文書によってい奴隷とされた者達の悲惨な証言を聞くことになります -- そして彼らが自らの正気を保つためにどのように勇敢に戦ってきたかを。 &quot;Email Hates the Living!&quot; -- この事実が今こそ語られます 警告：このトークはあなたの仕事に役立つような学ぶべき要素に乏しい内容となっております</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-82" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 13:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Monads in Perl</div>
+                        <div>Masahiro Honma (hiratara)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">モナドをHaskellにおいて副作用をなくす黒魔術だと思われている方もいるかもしれませんが、単にそれだけでなく、拡張された値を扱うデザインパターンとして有用に働くことがよくあります。 このセッションの前半では、モナドを全く知らない人を対象に定義を天下り的に紹介することで、モナドは決して複雑に入り組んだ物ではないことを示します。そして後半ではAnyEventのcondition variablesを「将来値が確定する値」として捉え、モナドの定義をあてはめることで通常の関数をcondition variablesを扱える関数へと自然に拡張できることを見ていきます。 高階関数とAnyEventについて知っていることを前提で話をします。 ---- &quot;Monad&quot; is not magic. It&#39;s very useful in a certain situation, like when you use many condition variables of AnyEvent. This talk gives a simple, strict definition of monads and illustrates how I applied the monad pattern to AnyEvent&#39;s condition variables.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-48" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:40:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Evolution of API With Blogging</div>
+                        <div>Takatsugu Shigeta (comewalk)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Blog Hacks  から7年。ブログは API を活用したツールの原点だったと思います。この数年でブログを取り巻く API も変化しました。今やどのツールにも API が実装されています。近年の API 事情（XMLRPC, AtomPub から PubSubHubbub や REST APIなど）をまとめつつ、それらを Starman や Twiggy、Perlbal、TheSchwartz などを含めた Perl 実装を紹介します。 We spent for seven years from Blog Hacks published. (Blog Hacks was written by Tatsuhiko Miyagawa, Naoya Ito and their friends from O&#39;Reilly Japan. Although the book is out of print.) I think that blog is the principal of API. API technologies are always evolving. Then almost of web applications has API. I&#39;ll talk an current situation of API with Perl implementation.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-99" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:40:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> SKYARC System presents 招待 LT (1) - papixさん</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">スカイアークシステム様が 旅費をスポンサーしていただき、関東圏以外からの方にもYAPC::Asia Tokyo参加のチャンスを！という趣旨の枠です。詳しくはこちらをどうぞ： http://yapcasia.org/2011/news/yapcasia-region.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-30" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Hacking Mac OSX Cocoa API from Perl</div>
+                        <div>Daisuke Murase (typester)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">XS を用いて、Perl から直接 Mac OS X の Cocoa API を叩いて遊ぶという話と、 そのテクニックを使って作成された Cocoa:: ネームスペースのモジュールの解説。 XSを使用しますが、このトークでは決まり切った書き方を1つ覚えるだけでいいので、XSの事前知識は特に必要ありません。（もちろん知っているとよりおもしろいと思います） また、 Cocoa API や Objective-C の知識は少しあった方が楽しめるでしょう。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-47" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> あんなテスト、こんなテスト (this and that about testing)</div>
+                        <div>tsucchi (tsucchi)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at スイーツエリア</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">テストコードを書く際に、DBなどの外部の環境に依存する部分や、日時などOSに近い部分のテストが書きづらいのは周知のことと思います。 しかし、「少しの黒魔術」や「ちょっと変わったモジュール」の力を借りればこういったテストも比較的楽に書くことができます。 そんな、「ちょっとヘン、だけど有用」なテストのテクニックをご紹介したいと思います。 (一般論というよりも、実際の業務で出会った問題とその対応を紹介する予定です) --- It is difficult to write testcode for external components such as DB and OS-related component such as system clock. But with &#39;some black magic&#39; or &#39;a little strange modules&#39; makes these tests easy to write. In this talk, &#39;a little strange but powerful&#39; test techniques will be presented. (Rather than generality, I will talk about problems that I really met in my work and how to solve it)</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-100" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:45:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> SKYARC System presents 招待 LT (2) - hkataokaさん</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">スカイアークシステム様が 旅費をスポンサーしていただき、関東圏以外からの方にもYAPC::Asia Tokyo参加のチャンスを！という趣旨の枠です。詳しくはこちらをどうぞ： http://yapcasia.org/2011/news/yapcasia-region.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-101" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:50:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> SKYARC System presents 招待 LT (3) shinpei_cmykさん</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">スカイアークシステム様が 旅費をスポンサーしていただき、関東圏以外からの方にもYAPC::Asia Tokyo参加のチャンスを！という趣旨の枠です。詳しくはこちらをどうぞ： http://yapcasia.org/2011/news/yapcasia-region.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-102" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 14:55:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> SKYARC System presents 招待 LT (4) lapis_tw さん</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">スカイアークシステム様が 旅費をスポンサーしていただき、関東圏以外からの方にもYAPC::Asia Tokyo参加のチャンスを！という趣旨の枠です。詳しくはこちらをどうぞ： http://yapcasia.org/2011/news/yapcasia-region.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-103" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:00:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> SKYARC System presents 招待 LT (5) 1VQ9さん</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">スカイアークシステム様が 旅費をスポンサーしていただき、関東圏以外からの方にもYAPC::Asia Tokyo参加のチャンスを！という趣旨の枠です。詳しくはこちらをどうぞ： http://yapcasia.org/2011/news/yapcasia-region.html</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-61" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perlスクリプトをgdbでデバッグ</div>
+                        <div>Akira Higuchi (ahiguti)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Perlスクリプトを実行中のプロセスをgdbを使ってデバッグする方法を紹介します。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-53" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Teto でニコニコ音声ストリーミング</div>
+                        <div>motemen (motemen)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at スイーツエリア</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">ニコニコ動画や YouTube の音声を連続して聴ける音声ストリーミングアプリ Teto のご紹介です。 Teto を使って、適当なウェブサイトをプレイリスト代わりに iTunes 等で聴くことができます。 https://github.com/motemen/Teto</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-84" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:10:00 2011 (5min.)</span></div>
+                    <div class="title">
+                        <div> 仙台で1年間 PM をやってみた</div>
+                        <div>Eikichi Gotoh (egopro)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">思い起こせば1年前、YAPC::Asia 2010 でのトークを聞いて、いてもたってもいられず呟いてしまった Sendai.pm やるぞ発言。そして、予想外の RT に調子に乗って始めた Sendai.pm（準備室）、その1年間の軌跡とは！？ ・東北の PM として ・未だ準備室でいる理由 ・活動報告 ・震災を乗り越えて ・色んなイベントで告知させていただきました ・東北、仙台から YAPC に参加してる人って</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-40" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> 少人数でのWebアプリ開発 - CGIからPSGIまでの変遷</div>
+                        <div>aloelight (aloelight)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">YAPC::Asia Tokyo 2007で感銘を受けて、Modern Perlを目指した4年間。 CGIからPSGIまで変化した少人数でのWebアプリ開発の変遷をご紹介いたします。 - CGIからmod_perlへの移行 - TracとSubversionの導入 - DevOps - CPANの活用 - JobQueueの利用 - cpanmとPSGI/Plack - Hokkaido.pm - VMwareの利用 - Test文化の浸透</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-70" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> なぜ、高校生がPerlを使うのか？</div>
+                        <div>akiyama (akiym)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">RubyやPythonなどの言語がある中で、なぜ高校生はPerlを選んだのか。 CGIではなく、Plackから入ったPerlの世界。モダンなPerl。 はじめてのuse strict;からAcme::まで、すべて高校生から見た視点で話します。 - 北海道から高校生がYAPCに来るまで - Perlとの初めての出会い - 初めて書いたプログラム - プログラミングPerlを買ったのいいが読むのを挫折してしまった話 - Hokkaido.pmで生まれて初めてLTをした話 - はじめてのAcme:: - 高校生から見た、CPANや様々なPerlの文化について</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-43" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 15:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Hello Embed Perl!</div>
+                        <div>Hideaki Ohno (hideo55)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">Perlインタプリタをいろいろなものに埋め込んでみよう！ Cプログラムに埋め込むことが可能なPerlインタプリタをC言語で拡張可能な様々なプログラムに埋め込み、その過程で得られた知見や組み込みPerlの可能性について発表します。 ・埋め込みインタプリタの基本 ・既存の埋め込みPerlインタプリタを用いたプログラムについて ・埋め込みPerlインタプリタを使用した自作プログラムの紹介 ・埋め込みインタプリタの応用例</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-62" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> PerlでJCL、基幹バッチをダウンサイジング</div>
+                        <div>minemaz (minemaz)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">汎用機とかJCLとかPerlからはるか遠い存在と思ってませんか？ Perlを使った基幹システムのマイグレーションの現場から その具体的な中身をお伝えします！ 概要： ・何故perlを使ったのか？ 　実装はさておきJCLを動作させないといけない。あと2時間でどうする？ ・perlで構文解析Parse::Eyapp 　COBOLプログラムで生成したPARAM言語を処理。強力な正規表現と 　YACCライクな構文解析機能 ・せっかくだからperlで書くぜ 　求められているのは動作速度ではなく実装速度。同じライブラリを 　使いたかったから ・あれから1年経ちました 　Apache+mod_php+OpenCOBOL+Perl+MySQLそして現在</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-23" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> DTrace: printf debugging for seventh-level wizards</div>
+                        <div>sartak (sartak)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">(English follows Japanese) DTrace: 最強の魔法使いのprintfのようなデバッガ DTraceは、コンピューターが何を動作していることを調べるために、とても強力なツールです。プロダクションでも使えますよ。ネットワーク監視という神様が怒らず！ これは、Perlのやさしい世界の厳しい外部でも、デバッグや最適化や監視をするツールです。アプリケーションのコードを汚染していないままで、再起動が必要でなくて、トレースを示す可能があります！しかも、他の使っているモジューでも、カーネルプロセスでも、他のアプリケーションル（例えば:MySQL、Apache）でも、トレースで動作を検査できます。printfのようなデバッグすることが好きの方にとって、DTraceも好きになると思います。 このトークでは、「DTraceはすごすぎるよ！」と聞いたが使ったことがない方のためにDTrace入門です。それ以外で、PerlのDTraceのサポートと、Perlに追加したプローブを説明します。 DTrace is an extremely powerful tool for examining what a computer is doing. Even in production. Without invoking the ire of the Munin Gods. It&#39;s also an indispensible tool for programmers who are trying to debug, optimize, or otherwise investigate what their code is doing when it ventures (and venture it must!) outside of the cozy, warm, abstract world of the Perl interpreter. If you tend towards printf debugging, then DTrace lets you break through to some seriously next-level shit. You don&#39;t have to pollute your application&#39;s code, or even restart it(!), to begin tracing it. You can also trace the execution of other Perl modules you&#39;re using, your operating system kernel, and other applications such as MySQL or Apache. It is awesome! This talk is intended as an introduction to DTrace for those who have maybe heard that it rocks but haven&#39;t ever used it. I&#39;ll also describe specifically Perl&#39;s support for DTrace and how to make use of the probes we&#39;ve been adding.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-86" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:00:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> OtoPerl - perl でライブ・サウンド生成しよう。 (OtoPerl - live sound generation with Perl.)</div>
+                        <div>Haruka Kataoka (hrk)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">OtoPerl は Perl でリアルタイムサウンド生成を行う Mac OS 向けプログラム環境です。 https://github.com/drumsoft/OtoPerl 使い慣れたPerlで、自由度の高いサウンド生成が可能です。演奏を停めずに Perl コードを差し替える事ができ、即興でのコーディング・ライブに使用する事を目標に開発されています。 このトークでは、実際にサウンド生成を行う為のチュートリアル的な内容と、 OtoPerl 内部の技術的な話（Perl と Mac OS X のサウンド周り (Core Audio, Audio Unit) をどう繋げたか、等）の両方をお話ししたいと思います。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-45" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perlで仮想サーバ制御（仮）</div>
+                        <div>HIRATA, Satoshi (debility)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">libvirtのPerlバインディングであるSys::Virtなどを用いて、仮想サーバを制御する方法について説明します。 また、実例としてAmazon EC2互換のAPIを持った仮想サーバ基盤の構築について取り上げます。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-51" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perl Hackers Hub の舞台裏 (side story of Perl Hackers Hub on WEB+DB PRESS)</div>
+                        <div>Kazuhiro Osawa (yappo)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">WEB+DB PRESS での Perl 連載枠を立ち上げた時の裏話等を交えつつ、アウトプットの大切さ等について Yappo が語ります。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-83" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 16:20:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Perl Hobby Programming - Games::BeLike::EightBIT ターミナルで8ビット風ゲームを作ろう (Perl Hobby Programming - Games::BeLike::EightBIT Let&#39;s make the terminal game which looks like a retro 8 bit one.)</div>
+                        <div>keroyonn_ (keroyonn_)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">HTTPの要求を受け取り、SQLを発行、HTMLやJSONを返却するコードを書く日々…あぁ、何か違う。 まだ幼ない頃、プログラムってもっと楽しいものだと思ってた。 サウンド-BEEP、グラフィック-LINE/CIRCLE/PAINT、そしてそれらの頂点に位置するゲーム! ゲームプログラミング! ゲームプログラミング!! ゲームプログラミング!!! アニメーション、衝突判定、三角関数、多重スクロール、何だか楽しそうな文字が並んでいるぞ。 でもそれって、HTML5とかFlashとかSilverlightとかだよね…Perlって裏でスコアを記録したりするくらいだよね…。 SDL入れてPerlでコード書くくらいなら、最初からFlashとかHTML5とかでやるよね…。 でもターミナルでグラフィックが描ければ、SSH越しにゲームが動けば、戦える。 Games::BeLike::EightBIT でエネルギーゲインが3倍になった Perl は Hobby Programming 戦争でまだまだ何年も戦えるぞ! というわけで、Perlでターミナル8ビット風ゲームを作ろう講座です。 SDLなどのライブラリなしに、世界で稼働中の数億台のUnix系サーバーとそこに標準インストールされているPerlでゲームが作れます。 vi でコードを書きながら、「:!perl %」で即座にコードを実行できます。 ※ なお、Games::BeLike::EightBIT は現在鋭意開発中であり、公開は10月になる予定です。</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-98" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 17:00:00 2011 (60min.)</span></div>
+                    <div class="title">
+                        <div> LT Day 2</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">LT Day 2</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-66" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 18:00:00 2011 (40min.)</span></div>
+                    <div class="title">
+                        <div> Managing A Band Of Hackers</div>
+                        <div>Hideo Kimura (hidek)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in 日本語, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">多くの人は普通のエンジニアです。私もかつてはそうでしたし、今でもそうです。そんな普通のエンジニアが「マネージャー」という役割となり、さらにあくの強い凄腕ハッカー達を束ねなければならなくなったとき、どうやってマネージメントすればいいのか。そこにはPerlコミュニティから学んだ多くのことが役に立ちました。そんな話を自分の経験談を交えて話します。今マネージャーとして頑張っている人、これからマネージャーになろうとしてる人、キャリアプランに悩んでいる人、そんな人たちに希望を与えられたらと思います。中間管理職も意外と楽しいことありますよ。 Most people are ordinary engineers. I was, and still am one. But now that I also where the manager&#39;s hat, responsibilities change: You need to be able to manage and work with hardcore hackers -- and when it comes down to it, many aspects that one can learn from the Perl community can help you walk you through that road. This talks is for people who are or will be one of those managers, and for those of you who are not sure about your career plan yet. There definitely is something very rewarding managing a band of hackers.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="talk day15" id="talk-39" style="display:none;">
+            <ul>
+                <li class="talk-meta">
+                    <div class="start_at"><span>Sat Oct 15 18:40:00 2011 (20min.)</span></div>
+                    <div class="title">
+                        <div> Closing</div>
+                        <div>Daisuke Maki (lestrrat)</div>
+                    </div>
+
+                    <div style="text-align:right;">
+                        <span>in English, at 70周年記念講堂</span>
+                    </div>
+                </li>
+                <li class="talk-summary" style="display:none;">
+                    <div class="summary">今回は英語で喋って、日本語字幕でご挨拶の予定。 This year I&#39;ll do the welcome speech in English, with Japanese subtitles. I&#39;m planning to address the Evolution of Perl, YAPC, the Community.</div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <ul class="day-list">
+            <li><a href="#" class="13">Oct 13</a></li>
+            <li><a href="#" class="14">Oct 14</a></li>
+            <li><a href="#" class="15">Oct 15</a></li>
+        </ul>
+        <div class="credit">
+            <div>by <a href="https://github.com/punytan">@punytan</a></div>
+            <div><a href="https://github.com/punytan/yapcasia-timetable-2011">Fork me on github!</a></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
