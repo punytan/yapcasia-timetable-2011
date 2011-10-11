@@ -77,7 +77,6 @@ EOS
             };
         })->scrape(URI->new("http://yapcasia.org/2011/talk/$id"));
 
-        my $sql = SQL::Abstract->new;
         my $table_map = {
             '会場'     => 'place',
             '状態'     => 'status',
@@ -101,13 +100,17 @@ EOS
         }
 
         $fields->{duration} = ($fields->{duration} =~ /(\d+)/) ? $1 : 5;
+        $fields->{genre}    = $fields->{genre} // 'undefined'; # NOTE: some talks doesn't have this attr.
 
         $fields->{end_at} = (localtime->strptime($fields->{start_at}, '%Y-%m-%d %H:%M:%S') +  60 * $fields->{duration})
             ->strftime("%Y-%m-%d %H:%M:%S");
 
-        my ($stmt, @bind) = $sql->insert("timetable", $fields);
+        warn encode_utf8 "$fields->{id}: $fields->{title} ($fields->{genre})";
+
+        my ($stmt, @bind) = SQL::Abstract->new->insert("timetable", $fields);
         my $sth = $dbh->prepare($stmt);
         $sth->execute(@bind);
+
 
         sleep 1;
     }
