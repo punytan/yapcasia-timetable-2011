@@ -144,11 +144,35 @@ __DATA__
 
     <script>
         $(function () {
-            $(".day13").show();
+            var select_day = 13;
+            var show_place_list = function () {
+                $(".place-list a").each(function () {
+                    $(this).attr('class').match(new RegExp(select_day))
+                        ? $(this).parent().show() : $(this).parent().hide();
+                });
+            };
+
+            $(".day" + select_day).show();
+            show_place_list();
 
             $(".day-list a").click(function () {
+                select_day = $(this).attr("class");
                 $(".talk").hide();
-                $(".day" + $(this).attr("class")).show();
+                $(".day" + select_day).show();
+                show_place_list();
+            });
+
+            $(".place-list a").click(function () {
+                var select_place = $(this).text();
+                $(".talk").hide();
+                $(".day" + select_day).each(function () {
+                    var _place_text = $(this).find("div.place").text();
+                    if(_place_text.match(new RegExp(select_place))) {
+                        $(this).show();
+                    } else if (select_place == "All Talk") {
+                        $(this).show();
+                    }
+                });
             });
 
             $(".talk-meta").click(function () {
@@ -168,6 +192,15 @@ __DATA__
             <li><a href="#" class="14">Oct 14</a></li>
             <li><a href="#" class="15">Oct 15</a></li>
         </ul>
+        <ul class="place-list">
+            <li><a href="#" class="13 14 15">All Talk</a></li>
+            <li><a href="#" class="13">RejectConf</a></li>
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
+        </ul>
     </div>
 
     <div id="contents">
@@ -182,7 +215,7 @@ __DATA__
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in <: $talk.language :>, at <: $talk.place :></span>
+                        <span>in <: $talk.language :>, at <div class="place"><: $talk.place :></div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -195,6 +228,15 @@ __DATA__
     </div>
 
     <div id="footer">
+        <ul class="place-list">
+            <li><a href="#" class="13 14 15">All Talk</a></li>
+            <li><a href="#" class="13">RejectConf</a></li>
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
+        </ul>
         <ul class="day-list">
             <li><a href="#" class="13">Oct 13</a></li>
             <li><a href="#" class="14">Oct 14</a></li>

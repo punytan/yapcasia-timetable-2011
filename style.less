@@ -31,7 +31,7 @@ img {
     }
 }
 
-ul.day-list {
+ul.day-list, ul.place-list {
     list-style : none;
     overflow : auto;
     border-bottom : 1px solid gray;
@@ -55,6 +55,18 @@ ul.day-list {
             text-decoration : none;
         }
 
+    }
+}
+
+ul.place-list li {
+    width : 100%;
+    border-right : 0;
+    border-top : 1px dotted gray;
+    text-align : center;
+    float : none;
+
+    &:first-child {
+        border-top : 0;
     }
 }
 
