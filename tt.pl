@@ -143,12 +143,34 @@ __DATA__
     </script>
 
     <script>
+        var select_day = 13;
         $(function () {
-            $(".day13").show();
+            $(".day" + select_day).show();
 
             $(".day-list a").click(function () {
+                select_day = $(this).attr("class");
                 $(".talk").hide();
-                $(".day" + $(this).attr("class")).show();
+                $(".day" + select_day).show();
+                $(".place-list a").each(function () {
+                    if($(this).attr('class').match(new RegExp(select_day))) {
+                        $(this).css({"display":"block"});
+                        $(this).show();
+                    }else{
+                        $(this).hide();
+                    }
+                });
+            });
+
+            $(".place-list a").click(function () {
+                var select_place = $(this).text();
+                $(".talk").hide();
+                $(".day" + select_day).each(function(){
+                    var _place = $(this).find("div.place");
+                    var _place_text = _place.text();
+                    if(_place_text == select_place) {
+                        $(this).show();
+                    }
+                });
             });
 
             $(".talk-meta").click(function () {
@@ -168,6 +190,13 @@ __DATA__
             <li><a href="#" class="14">Oct 14</a></li>
             <li><a href="#" class="15">Oct 15</a></li>
         </ul>
+        <ul class="place-list">
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール (14日)</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール (15日)</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
+        </ul>
     </div>
 
     <div id="contents">
@@ -182,7 +211,7 @@ __DATA__
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in <: $talk.language :>, at <: $talk.place :></span>
+                        <span>in <: $talk.language :>, at <div class="place"><: $talk.place :></div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -199,6 +228,13 @@ __DATA__
             <li><a href="#" class="13">Oct 13</a></li>
             <li><a href="#" class="14">Oct 14</a></li>
             <li><a href="#" class="15">Oct 15</a></li>
+        </ul>
+        <ul class="place-list">
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール (14日)</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール (15日)</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
         </ul>
         <div class="credit">
             <div>by <a href="https://github.com/punytan">@punytan</a></div>
