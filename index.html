@@ -22,11 +22,35 @@
 
     <script>
         $(function () {
-            $(".day13").show();
+            var select_day = 13;
+            var show_place_list = function () {
+                $(".place-list a").each(function () {
+                    $(this).attr('class').match(new RegExp(select_day))
+                        ? $(this).parent().show() : $(this).parent().hide();
+                });
+            };
+
+            $(".day" + select_day).show();
+            show_place_list();
 
             $(".day-list a").click(function () {
+                select_day = $(this).attr("class");
                 $(".talk").hide();
-                $(".day" + $(this).attr("class")).show();
+                $(".day" + select_day).show();
+                show_place_list();
+            });
+
+            $(".place-list a").click(function () {
+                var select_place = $(this).text();
+                $(".talk").hide();
+                $(".day" + select_day).each(function () {
+                    var _place_text = $(this).find("div.place").text();
+                    if(_place_text.match(new RegExp(select_place))) {
+                        $(this).show();
+                    } else if (select_place == "All Talk") {
+                        $(this).show();
+                    }
+                });
             });
 
             $(".talk-meta").click(function () {
@@ -46,6 +70,15 @@
             <li><a href="#" class="14">Oct 14</a></li>
             <li><a href="#" class="15">Oct 15</a></li>
         </ul>
+        <ul class="place-list">
+            <li><a href="#" class="13 14 15">All Talk</a></li>
+            <li><a href="#" class="13">RejectConf</a></li>
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
+        </ul>
     </div>
 
     <div id="contents">
@@ -59,7 +92,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at RejectConf</span>
+                        <span>in 日本語, at <div class="place">RejectConf</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -77,7 +110,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at RejectConf</span>
+                        <span>in 日本語, at <div class="place">RejectConf</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -95,7 +128,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at RejectConf</span>
+                        <span>in 日本語, at <div class="place">RejectConf</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -113,7 +146,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at RejectConf</span>
+                        <span>in 日本語, at <div class="place">RejectConf</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -131,7 +164,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -149,7 +182,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -167,7 +200,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -185,7 +218,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -203,7 +236,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -221,7 +254,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -239,7 +272,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -257,7 +290,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -275,7 +308,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -293,7 +326,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -311,7 +344,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -329,7 +362,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -347,7 +380,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -365,7 +398,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -383,7 +416,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -401,7 +434,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -419,7 +452,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -437,7 +470,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -455,7 +488,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -473,7 +506,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -491,7 +524,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at スイーツエリア</span>
+                        <span>in English, at <div class="place">スイーツエリア</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -509,7 +542,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -527,7 +560,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at ディジタル多目的ホール (14日)</span>
+                        <span>in 日本語, at <div class="place">ディジタル多目的ホール (14日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -545,7 +578,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -563,7 +596,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -581,7 +614,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -599,7 +632,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -617,7 +650,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -635,7 +668,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -653,7 +686,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -671,7 +704,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -689,7 +722,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -707,7 +740,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -725,7 +758,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -743,7 +776,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -761,7 +794,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -779,7 +812,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -797,7 +830,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -815,7 +848,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -833,7 +866,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -851,7 +884,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at スイーツエリア</span>
+                        <span>in 日本語, at <div class="place">スイーツエリア</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -869,7 +902,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -887,7 +920,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -905,7 +938,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -923,7 +956,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -941,7 +974,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -959,7 +992,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at スイーツエリア</span>
+                        <span>in 日本語, at <div class="place">スイーツエリア</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -977,7 +1010,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -995,7 +1028,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1013,7 +1046,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1031,7 +1064,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1049,7 +1082,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1067,7 +1100,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at フェライト会議室 100年記念館</span>
+                        <span>in English, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1085,7 +1118,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1103,7 +1136,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1121,7 +1154,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at フェライト会議室 100年記念館</span>
+                        <span>in 日本語, at <div class="place">フェライト会議室 100年記念館</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1139,7 +1172,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 蔵前会館 ロイヤルブルーホール (15日)</span>
+                        <span>in 日本語, at <div class="place">蔵前会館 ロイヤルブルーホール (15日)</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1157,7 +1190,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1175,7 +1208,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in 日本語, at 70周年記念講堂</span>
+                        <span>in 日本語, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1193,7 +1226,7 @@
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in English, at 70周年記念講堂</span>
+                        <span>in English, at <div class="place">70周年記念講堂</div></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
@@ -1205,6 +1238,15 @@
     </div>
 
     <div id="footer">
+        <ul class="place-list">
+            <li><a href="#" class="13 14 15">All Talk</a></li>
+            <li><a href="#" class="13">RejectConf</a></li>
+            <li><a href="#" class="14 15">70周年記念講堂</a></li>
+            <li><a href="#" class="14 15">フェライト会議室 100年記念館</a></li>
+            <li><a href="#" class="14">ディジタル多目的ホール</a></li>
+            <li><a href="#" class="15">蔵前会館 ロイヤルブルーホール</a></li>
+            <li><a href="#" class="14 15">スイーツエリア</a></li>
+        </ul>
         <ul class="day-list">
             <li><a href="#" class="13">Oct 13</a></li>
             <li><a href="#" class="14">Oct 14</a></li>
