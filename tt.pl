@@ -166,7 +166,7 @@ __DATA__
                 var select_place = $(this).text();
                 $(".talk").hide();
                 $(".day" + select_day).each(function () {
-                    var _place_text = $(this).find("div.place").text();
+                    var _place_text = $(this).find("span.place").text();
                     if(_place_text.match(new RegExp(select_place))) {
                         $(this).show();
                     } else if (select_place == "All Talk") {
@@ -215,7 +215,7 @@ __DATA__
                     </div>
 
                     <div style="text-align:right;">
-                        <span>in <: $talk.language :>, at <div class="place"><: $talk.place :></div></span>
+                        <span>in <: $talk.language :>, at <span class="place"><: $talk.place :></span></span>
                     </div>
                 </li>
                 <li class="talk-summary" style="display:none;">
