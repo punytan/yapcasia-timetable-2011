@@ -144,7 +144,9 @@ __DATA__
 
     <script>
         $(function () {
-            var select_day = 13;
+            var select_day = 12 < (new Date).getDate() && (new Date).getDate() < 16
+                ? (new Date).getDate() : 13;
+
             var show_place_list = function () {
                 $(".place-list a").each(function () {
                     $(this).attr('class').match(new RegExp(select_day))
